@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Trình điều khiển</title>
+    <title>Controller</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Thư viện Font Awesome -->
@@ -186,7 +186,7 @@
 
 <body>
     <div class="topnav">
-        <h3>Trình điều khiển</h3>
+        <h3>Controller</h3>
     </div>
 
     <div class="container">
@@ -207,17 +207,17 @@
                     <!-- == MONITORING ======================================================================================== -->
                     <div class="card">
                         <div class="card header">
-                            <h3 style="font-size: 1rem;">Hiển Thị</h3>
+                            <h3 style="font-size: 1rem;">Show</h3>
                         </div>
 
                         <!-- Hiển thị các giá trị -->
-                        <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> Nhiệt độ</h4>
+                        <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i>Temperature</h4>
                         <p class="temperatureColor"><span class="reading"><span id="ESP32_01_Temp"></span> &deg;C</span></p>
-                        <h4 class="humidityColor"><i class="fas fa-tint"></i> Độ ẩm</h4>
+                        <h4 class="humidityColor"><i class="fas fa-tint"></i>Humidity</h4>
                         <p class="humidityColor"><span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></p>
-                        <h4 class="humidityColor">Độ ẩm đất</h4>
+                        <h4 class="humidityColor">Soil Humidity</h4>
                         <p class="humidityColor"><span class="reading"><span id="ESP32_01_soil"></span> &percnt;</span></p>
-                        <h4 class="humidityColor">Ánh sáng</h4>
+                        <h4 class="humidityColor">Light</h4>
                         <p class="humidityColor"><span class="reading"><span id="ESP32_01_light"></span></p>
                     </div>
                     <!-- ======================================================================================================= -->
@@ -225,17 +225,17 @@
                     <!-- == CONTROLLING ======================================================================================== -->
                     <div class="card">
                         <div class="card header">
-                            <h3 style="font-size: 1rem;">Điều Khiển</h3>
+                            <h3 style="font-size: 1rem;">Controller</h3>
                         </div>
                         <p>PUMP STATUS: <span id="led-status">OFF</span></p>
 
                         <!-- Nút điều khiển -->
-                        <h4 class="LEDColor"> Máy Bơm 1</h4>
+                        <h4 class="LEDColor">Pump 1</h4>
                         <label class="switch">
                             <input type="checkbox" id="ESP32_01_TogLED_01" onclick="GetTogBtnLEDState('ESP32_01_TogLED_01')">
                             <div class="sliderTS"></div>
                         </label>
-                        <h4 class="LEDColor"> Máy Bơm 2</h4>
+                        <h4 class="LEDColor">Pump 2</h4>
                         <label class="switch">
                             <input type="checkbox" id="ESP32_01_TogLED_02" onclick="GetTogBtnLEDState('ESP32_01_TogLED_02')">
                             <div class="sliderTS"></div>
@@ -249,8 +249,8 @@
             <div class="content">
                 <div class="cards">
                     <div class="card header" style="border-radius: 15px;">
-                        <h3 style="font-size: 0.7rem;">Thông tin cảm biến [ <span id="ESP32_01_LTRD"></span> ]</h3>
-                        <button onclick="window.open('recordtable.php', '_blank');">Mở bảng thông tin</button>
+                        <h3 style="font-size: 0.7rem;">Sensor Data [ <span id="ESP32_01_LTRD"></span> ]</h3>
+                        <button onclick="window.open('recordtable.php', '_blank');">Open Record Table</Table></button>
                     </div>
                 </div>
             </div>
@@ -259,38 +259,38 @@
     <!-- == INPUT SENSOR PARAMETERS ================================================= -->
     <div class="card">
         <div class="card header">
-            <h3 style="font-size: 1rem;">Thiết lập giá trị cảm biến</h3>
+            <h3 style="font-size: 1rem;">Set Auto Data</h3>
         </div>
 
         <form id="sensorLimitsForm">
             <table style="width: 100%;">
                 <tr>
-                    <th>Thông số</th>
-                    <th>Giá trị Min</th>
-                    <th>Giá trị Max</th>
+                    <th>Data</th>
+                    <th>Min</th>
+                    <th>Max</th>
                 </tr>
                 <tr>
-                    <td>Nhiệt độ (&deg;C)</td>
+                    <td>Temperature (&deg;C)</td>
                     <td><input type="number" id="tempMin" name="tempMin" step="0.1"></td>
                     <td><input type="number" id="tempMax" name="tempMax" step="0.1"></td>
                 </tr>
                 <tr>
-                    <td>Độ ẩm (%)</td>
+                    <td>Humidity (%)</td>
                     <td><input type="number" id="humidityMin" name="humidityMin" step="1"></td>
                     <td><input type="number" id="humidityMax" name="humidityMax" step="1"></td>
                 </tr>
                 <tr>
-                    <td>Độ ẩm đất (%)</td>
+                    <td>Soil Humidity (%)</td>
                     <td><input type="number" id="soilMin" name="soilMin" step="1"></td>
                     <td><input type="number" id="soilMax" name="soilMax" step="1"></td>
                 </tr>
                 <tr>
-                    <td>Ánh sáng</td>
+                    <td>Light</td>
                     <td><input type="number" id="lightMin" name="lightMin" step="1"></td>
                     <td><input type="number" id="lightMax" name="lightMax" step="1"></td>
                 </tr>
             </table>
-            <button type="button" onclick="saveSensorLimits()">Lưu</button>
+            <button type="button" onclick="saveSensorLimits()">Save</button>
         </form>
     </div>
     <!-- =========================================================================== -->
